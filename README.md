@@ -34,10 +34,11 @@ We measured latency on a single RTX 4090.
 
 ## Installation
 
-Unzip the repository and fetch LIBERO at the commit pinned by openpi:
+Clone the repository and fetch LIBERO at the commit pinned by openpi:
 
 ```bash
-cd action-upcycling-openpi
+git clone https://github.com/star-kwon/action-upcycling.git
+cd action-upcycling
 git clone https://github.com/Lifelong-Robot-Learning/LIBERO.git third_party/libero
 git -C third_party/libero checkout f78abd68ee283de9f9be3c8f7e2a9ad60246e95c
 ```
@@ -47,6 +48,8 @@ We use [uv](https://docs.astral.sh/uv/) to manage Python dependencies, as in ope
 ```bash
 GIT_LFS_SKIP_SMUDGE=1 uv sync
 GIT_LFS_SKIP_SMUDGE=1 uv pip install -e .
+# openpi installs both opencv-python and opencv-python-headless; make sure cv2 comes from the headless build
+uv pip install --reinstall --no-deps opencv-python-headless==4.11.0.86
 ```
 
 Create the LIBERO client environment, as in the official [LIBERO example](examples/libero/README.md):
