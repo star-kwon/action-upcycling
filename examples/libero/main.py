@@ -35,7 +35,8 @@ class Args:
     #################################################################################################################
     # Action Upcycling parameters (with the defaults below, this script is identical to the official evaluation)
     #################################################################################################################
-    upcycle_tau: float = 0.0  # Fluctuation threshold tau from an offline pool (calibrate_threshold.py). 0 = disabled
+    upcycle: bool = False  # Enable Action Upcycling with the threshold of the paper (pi0.5 on LIBERO, r = 1.5)
+    upcycle_tau: float = 0.0  # Use this threshold tau instead (e.g. from calibrate_threshold.py). 0 = not set
     upcycle_online_ratio: float = 0.0  # >1: update tau online from the pool of signals seen so far, for this ratio r
     log_path: str = ""  # If set, append one JSON line per episode (success, steps, and per call: h_exec, ms, signal)
 
@@ -171,7 +172,14 @@ def eval_libero(args: Args) -> None:
 
                         # Action Upcycling: also execute the tail while its velocity fluctuation stays below tau
                         signal = _upcycling.velocity_fluctuation(action_chunk, args.replan_steps)
-                        tau = online_pool.update(signal) if online_pool is not None else args.upcycle_tau
+                        if online_pool is not None:
+                            tau = online_pool.update(signal)
+                        elif args.upcycle_tau > 0:
+                            tau = args.upcycle_tau
+                        elif args.upcycle:
+                            tau = _upcycling.PI05_LIBERO_TAU
+                        else:
+                            tau = 0.0  # default setting of the policy
                         h_exec = _upcycling.execution_length(signal, args.replan_steps, tau)
                         action_plan.extend(action_chunk[:h_exec])
                         calls.append(

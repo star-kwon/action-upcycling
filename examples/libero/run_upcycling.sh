@@ -5,7 +5,7 @@
 #   bash examples/libero/run_upcycling.sh <run_name> [client args ...]
 #
 #   bash examples/libero/run_upcycling.sh baseline                                  # default setting (h = 5)
-#   bash examples/libero/run_upcycling.sh upcycling --args.upcycle-tau 0.1454       # Action Upcycling, r = 1.5
+#   bash examples/libero/run_upcycling.sh upcycling --args.upcycle                  # Action Upcycling, r = 1.5
 #   bash examples/libero/run_upcycling.sh online --args.upcycle-online-ratio 1.5    # online pool
 #   bash examples/libero/run_upcycling.sh fixed7 --args.replan-steps 7              # fixed-length execution
 #

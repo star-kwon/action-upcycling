@@ -1,7 +1,5 @@
 # Don't Throw Away the Tail: Action Upcycling for Policy Acceleration
 
-[![Project Website](https://img.shields.io/badge/Project-Website-blue)](https://actionupcycling.github.io/)
-
 This repository is the official implementation of "Don't Throw Away the Tail: Action Upcycling for Policy Acceleration", built upon the official [openpi](https://github.com/Physical-Intelligence/openpi) repository.
 
 ## Action Upcycling
@@ -23,7 +21,7 @@ The entire method is in [`examples/libero/action_upcycling.py`](examples/libero/
 
 ## Results (π0.5, LIBERO)
 
-π0.5 predicts $H = 10$ actions per call and executes $h = 5$ under its default setting. We use $N = 10$ denoising steps and $r = 1.5$ ($\tau = 0.1454$).
+π0.5 predicts $H = 10$ actions per call and executes $h = 5$ under its default setting. We use $N = 10$ denoising steps and $r = 1.5$.
 
 | | Spatial | Object | Goal | Long | Avg. succ. (%) | Calls / ep | ms / call | s / ep |
 |---|---|---|---|---|---|---|---|---|
@@ -76,8 +74,8 @@ Terminal window 2: evaluate the baseline and Action Upcycling on the four LIBERO
 ```bash
 source examples/libero/.venv/bin/activate
 
-bash examples/libero/run_upcycling.sh baseline                             # default setting (h = 5)
-bash examples/libero/run_upcycling.sh upcycling --args.upcycle-tau 0.1454  # Action Upcycling (r = 1.5)
+bash examples/libero/run_upcycling.sh baseline                                  # default setting (h = 5)
+bash examples/libero/run_upcycling.sh upcycling --args.upcycle                  # Action Upcycling (r = 1.5)
 
 python examples/libero/summarize.py results/baseline results/upcycling
 ```
