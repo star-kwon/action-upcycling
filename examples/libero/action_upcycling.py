@@ -21,10 +21,6 @@ import numpy as np
 # gripper command. The velocity is the action itself, and the gripper dimension is excluded.
 LIBERO_VELOCITY_DIMS = slice(0, 6)
 
-# Fluctuation threshold used for pi0.5 on LIBERO (h = 5, H = 10) with the upcycling ratio r = 1.5, selected with
-# threshold_from_pool() from the signals of pi0.5 LIBERO rollouts under its default setting (calibrate_threshold.py).
-PI05_LIBERO_TAU = 0.1454
-
 
 def velocity(chunk: np.ndarray, *, relative: bool = True, dims: slice = LIBERO_VELOCITY_DIMS) -> np.ndarray:
     """Velocity v_k induced by each action of a chunk [H, D].
