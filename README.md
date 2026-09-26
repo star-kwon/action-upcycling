@@ -75,7 +75,7 @@ Terminal window 2: evaluate the baseline and Action Upcycling on the four LIBERO
 source examples/libero/.venv/bin/activate
 
 bash examples/libero/run_upcycling.sh baseline                                  # default setting (h = 5)
-bash examples/libero/run_upcycling.sh upcycling --args.upcycle-tau 0.1454       # Action Upcycling (r = 1.5)
+bash examples/libero/run_upcycling.sh upcycling --config pi05_libero_r1.5       # Action Upcycling (r = 1.5)
 
 python examples/libero/summarize.py results/baseline results/upcycling
 ```

@@ -1,0 +1,3 @@
+# pi0.5 on LIBERO (h = 5, H = 10), upcycling ratio r = 1.5
+# threshold selected with calibrate_threshold.py from a pool of pi0.5 LIBERO chunks under the default setting
+--args.upcycle-tau 0.1454
