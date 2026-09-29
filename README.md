@@ -84,3 +84,6 @@ bash examples/libero/run_upcycling.sh upcycling --config pi05_libero_r1.5       
 
 python examples/libero/summarize.py results/baseline results/upcycling
 ```
+
+## Citation
+If you find our work useful, please consider citing our paper and giving this repo a star ⭐
