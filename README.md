@@ -1,5 +1,10 @@
 # Don't Throw Away the Tail: Action Upcycling for Policy Acceleration
 
+<p>
+  <a href="https://arxiv.org/abs/2609.34911"><img src="https://img.shields.io/badge/Paper-arXiv-b31b1b.svg" alt="Paper"></a>
+  <a href="https://acupcycling.github.io/"><img src="https://img.shields.io/badge/Project-Page-4b9be8.svg" alt="Project Page"></a>
+</p>
+
 This repository is the official implementation of "Don't Throw Away the Tail: Action Upcycling for Policy Acceleration", built upon the official [openpi](https://github.com/Physical-Intelligence/openpi) repository.
 
 ## Action Upcycling
